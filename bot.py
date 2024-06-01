@@ -51,7 +51,7 @@ class Bot(Client):
 
         if FORCE_SUB_CHANNEL:
             try:
-                await .get_channel_invites(client=bot_client, channels=config.FORCE_SUB_CHANNELS)
+                Info = await .get_channel_invites(client=bot_client, channels=config.FORCE_SUB_CHANNELS)
                 bot_client.channels_n_invite = channels_n_invite  # pyright: ignore[reportAttributeAccessIssue]
           
             except Exception as a:
@@ -69,7 +69,7 @@ class Bot(Client):
 
         if FORCE_SUB_GROUP:
             try:
-                await .get_channel_invites(client=bot_client, channels=config.FORCE_SUB_GROUP)
+                Info = await .get_channel_invites(client=bot_client, channels=config.FORCE_SUB_GROUP)
                 bot_client.channels_n_invite = channels_n_invite  # pyright: ignore[reportAttributeAccessIssue]
           
             except Exception as a:
@@ -87,7 +87,7 @@ class Bot(Client):
 
         if FORCE_SUB_CHANNEL2:
             try:
-                await .get_channel_invites(client=bot_client, channels=config.FORCE_SUB_CHANNELS2)
+                Info = await .get_channel_invites(client=bot_client, channels=config.FORCE_SUB_CHANNELS2)
                 bot_client.channels_n_invite = channels_n_invite  # pyright: ignore[reportAttributeAccessIssue]
           
             except Exception as a:
@@ -105,7 +105,7 @@ class Bot(Client):
 
         if FORCE_SUB_GROUP2:
             try:
-                await .get_channel_invites(client=bot_client, channels=config.FORCE_SUB_GROUP2)
+                Info = await .get_channel_invites(client=bot_client, channels=config.FORCE_SUB_GROUP2)
                 bot_client.channels_n_invite = channels_n_invite  # pyright: ignore[reportAttributeAccessIssue]
           
             except Exception as a:
