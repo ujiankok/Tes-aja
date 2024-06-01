@@ -1,9 +1,6 @@
 # (©) @IndomieProject
 
 import pyromod.listen
-from plugins import web_server
-
-import pyromod.listen
 from aiohttp import web
 from plugins import web_server
 from pyrogram import Client
