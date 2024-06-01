@@ -17,6 +17,9 @@ APP_ID = int(os.environ.get("APP_ID", ""))
 # API Hash Anda dari my.telegram.org
 API_HASH = os.environ.get("API_HASH", "")
 
+#Port
+PORT = os.environ.get("PORT", "8080")
+
 # ID Channel Database
 CHANNEL_ID = int(os.environ.get("CHANNEL_ID", ""))
 
