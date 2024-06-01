@@ -5,7 +5,7 @@ from aiohttp import web
 from pyrogram import Client
 from pyrogram.enums import ParseMode
 from datetime import datetime
-from bot.utilities.helpers import NoInviteLinkError, PyroHelper
+from bot.import NoInviteLinkError, PyroHelper
 
 from config import (
     API_HASH,
