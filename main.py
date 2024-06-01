@@ -1,3 +1,3 @@
-from bot import PyroHelper
+from bot import bot
 
 Bot().run()
