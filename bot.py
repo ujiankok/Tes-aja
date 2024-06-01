@@ -50,9 +50,12 @@ class Bot(Client):
 
         if FORCE_SUB_CHANNEL:
             try:
-                Info = await self.client(functions.messages.ImportChatInviteRequest(invite_link))
-                bot_client.channels_n_invite = channels_n_invite  # pyright: ignore[reportAttributeAccessIssue]
-          
+                info = await self.get_chat(FORCE_SUB_CHANNEL)
+                link = info.invite_link
+                if not link:
+                    await self.export_chat_invite_link(FORCE_SUB_CHANNEL)
+                    link = info.invite_link
+                    
             except Exception as a:
                 self.LOGGER(__name__).warning(a)
                 self.LOGGER(__name__).warning(
@@ -68,9 +71,12 @@ class Bot(Client):
 
         if FORCE_SUB_GROUP:
             try:
-                Info = await self.client(functions.messages.ImportChatInviteRequest(invite_link))
-                bot_client.channels_n_invite = channels_n_invite  # pyright: ignore[reportAttributeAccessIssue]
-          
+                info = await self.get_chat(FORCE_SUB_GROUP)
+                link = info.invite_link
+                if not link:
+                    await self.export_chat_invite_link(FORCE_SUB_GROUP)
+                    link = info.invite_link
+                
             except Exception as a:
                 self.LOGGER(__name__).warning(a)
                 self.LOGGER(__name__).warning(
@@ -86,9 +92,12 @@ class Bot(Client):
 
         if FORCE_SUB_CHANNEL2:
             try:
-                Info = await self.client(functions.messages.ImportChatInviteRequest(invite_link))
-                bot_client.channels_n_invite = channels_n_invite  # pyright: ignore[reportAttributeAccessIssue]
-          
+                info = await self.get_chat(FORCE_SUB_CHANNEL2)
+                link = info.invite_link
+                if not link:
+                    await self.export_chat_invite_link(FORCE_SUB_CHANNEL2)
+                    link = info.invite_link
+                    
             except Exception as a:
                 self.LOGGER(__name__).warning(a)
                 self.LOGGER(__name__).warning(
@@ -104,9 +113,11 @@ class Bot(Client):
 
         if FORCE_SUB_GROUP2:
             try:
-                Info = await self.client(functions.messages.ImportChatInviteRequest(invite_link))
-                bot_client.channels_n_invite = channels_n_invite  # pyright: ignore[reportAttributeAccessIssue]
-          
+                info = await self.get_chat(FORCE_SUB_GROUP2)
+                link = info.invite_link
+                if not link:
+                    await self.export_chat_invite_link(FORCE_SUB_GROUP2)
+                    link = info.invite_link
             except Exception as a:
                 self.LOGGER(__name__).warning(a)
                 self.LOGGER(__name__).warning(
@@ -121,7 +132,7 @@ class Bot(Client):
                 sys.exit()
 
         try:
-            db_channel = await self.get_channel_invites(CHANNEL_ID)
+            db_channel = await self.get_chat(CHANNEL_ID)
             self.db_channel = db_channel
             test = await self.send_message(chat_id = db_channel.id, text = "Test Message")
             await test.delete()
