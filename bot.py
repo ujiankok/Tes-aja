@@ -46,12 +46,12 @@ class Bot(Client):
 
     async def start(self):
         await super().start()
-        usr_bot_me = await self.get_me()
+        usr_bot_me = await self.get_channel_invites()
         self.uptime = datetime.now()
 
         if FORCE_SUB_CHANNEL:
             try:
-                Info = await .get_channel_invites(FORCE_SUB_CHANNELS)
+                Info = await self.get_channel_invites(FORCE_SUB_CHANNELS)
                 bot_client.channels_n_invite = channels_n_invite  # pyright: ignore[reportAttributeAccessIssue]
           
             except Exception as a:
@@ -69,7 +69,7 @@ class Bot(Client):
 
         if FORCE_SUB_GROUP:
             try:
-                Info = await .get_channel_invites(FORCE_SUB_GROUP)
+                Info = await self.get_channel_invites(FORCE_SUB_GROUP)
                 bot_client.channels_n_invite = channels_n_invite  # pyright: ignore[reportAttributeAccessIssue]
           
             except Exception as a:
@@ -87,7 +87,7 @@ class Bot(Client):
 
         if FORCE_SUB_CHANNEL2:
             try:
-                Info = await .get_channel_invites(FORCE_SUB_CHANNELS2)
+                Info = await Slef.get_channel_invites(FORCE_SUB_CHANNELS2)
                 bot_client.channels_n_invite = channels_n_invite  # pyright: ignore[reportAttributeAccessIssue]
           
             except Exception as a:
@@ -105,7 +105,7 @@ class Bot(Client):
 
         if FORCE_SUB_GROUP2:
             try:
-                Info = await .get_channel_invites(FORCE_SUB_GROUP2)
+                Info = await Slef.get_channel_invites(FORCE_SUB_GROUP2)
                 bot_client.channels_n_invite = channels_n_invite  # pyright: ignore[reportAttributeAccessIssue]
           
             except Exception as a:
@@ -122,7 +122,7 @@ class Bot(Client):
                 sys.exit()
 
         try:
-            db_channel = await self.get_chat(CHANNEL_ID)
+            db_channel = await self.get_channel_invites(CHANNEL_ID)
             self.db_channel = db_channel
             test = await self.send_message(chat_id = db_channel.id, text = "Test Message")
             await test.delete()
