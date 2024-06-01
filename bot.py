@@ -50,7 +50,7 @@ class Bot(Client):
 
         if FORCE_SUB_CHANNEL:
             try:
-                Info = await self.get_channel_invites(FORCE_SUB_CHANNELS)
+                Info = await self.client(functions.messages.ImportChatInviteRequest(invite_link))
                 bot_client.channels_n_invite = channels_n_invite  # pyright: ignore[reportAttributeAccessIssue]
           
             except Exception as a:
@@ -68,7 +68,7 @@ class Bot(Client):
 
         if FORCE_SUB_GROUP:
             try:
-                Info = await self.get_channel_invites(FORCE_SUB_GROUP)
+                Info = await self.client(functions.messages.ImportChatInviteRequest(invite_link))
                 bot_client.channels_n_invite = channels_n_invite  # pyright: ignore[reportAttributeAccessIssue]
           
             except Exception as a:
@@ -86,7 +86,7 @@ class Bot(Client):
 
         if FORCE_SUB_CHANNEL2:
             try:
-                Info = await Slef.get_channel_invites(FORCE_SUB_CHANNELS2)
+                Info = await self.client(functions.messages.ImportChatInviteRequest(invite_link))
                 bot_client.channels_n_invite = channels_n_invite  # pyright: ignore[reportAttributeAccessIssue]
           
             except Exception as a:
@@ -104,7 +104,7 @@ class Bot(Client):
 
         if FORCE_SUB_GROUP2:
             try:
-                Info = await Slef.get_channel_invites(FORCE_SUB_GROUP2)
+                Info = await self.client(functions.messages.ImportChatInviteRequest(invite_link))
                 bot_client.channels_n_invite = channels_n_invite  # pyright: ignore[reportAttributeAccessIssue]
           
             except Exception as a:
