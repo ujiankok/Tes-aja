@@ -14,7 +14,6 @@ feedparser
 gitpython
 heroku3
 psycopg2-binary
-pyrogram
 python-dotenv
 speedtest-cli
 sqlalchemy==1.3.23
