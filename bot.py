@@ -50,15 +50,11 @@ class Bot(Client):
 
         if FORCE_SUB_CHANNEL:
             try:
-                info = await self.get_chat(FORCE_SUB_CHANNEL)
-                link = info.invite_link
-                if not link:
-                    await self.export_chat_invite_link(FORCE_SUB_CHANNEL)
-                    link = info.invite_link
-                self.invitelink = link
-                self.LOGGER(__name__).info(
-                    f"FORCE_SUB_CHANNEL detected!\n┌ Title: {info.title}\n└ Chat ID: {info.id}\n——"
-                )
+                channels_n_invite = await PyroHelper.get_channel_invites(client=bot_client, channels=config.FORCE_SUB_CHANNELS)
+                bot_client.channels_n_invite = channels_n_invite  # pyright: ignore[reportAttributeAccessIssue]
+          except (ChannelInvalid, ChatAdminRequired, NoInviteLinkError) as e:
+              sys.exit(f"Please add and give me permission in FORCE_SUB_CHANNELS and FORCE_SUB_CHANNEL:\n{e}")
+                
             except Exception as a:
                 self.LOGGER(__name__).warning(a)
                 self.LOGGER(__name__).warning(
@@ -74,15 +70,11 @@ class Bot(Client):
 
         if FORCE_SUB_GROUP:
             try:
-                info = await self.get_chat(FORCE_SUB_GROUP)
-                link = info.invite_link
-                if not link:
-                    await self.export_chat_invite_link(FORCE_SUB_GROUP)
-                    link = info.invite_link
-                self.invitelink2 = link
-                self.LOGGER(__name__).info(
-                    f"FORCE_SUB_GROUP detected!\n┌ Title: {info.title}\n└ Chat ID: {info.id}\n——"
-                )
+                channels_n_invite = await PyroHelper.get_channel_invites(client=bot_client, channels=config.FORCE_SUB_GROUP)
+                bot_client.channels_n_invite = channels_n_invite  # pyright: ignore[reportAttributeAccessIssue]
+          except (ChannelInvalid, ChatAdminRequired, NoInviteLinkError) as e:
+              sys.exit(f"Please add and give me permission in FORCE_SUB_CHANNELS and FORCE_SUB_GROUP:\n{e}")
+            
             except Exception as a:
                 self.LOGGER(__name__).warning(a)
                 self.LOGGER(__name__).warning(
@@ -98,15 +90,11 @@ class Bot(Client):
 
         if FORCE_SUB_CHANNEL2:
             try:
-                info = await self.get_chat(FORCE_SUB_CHANNEL2)
-                link = info.invite_link
-                if not link:
-                    await self.export_chat_invite_link(FORCE_SUB_CHANNEL2)
-                    link = info.invite_link
-                self.invitelink3 = link
-                self.LOGGER(__name__).info(
-                    f"FORCE_SUB_CHANNEL2 detected!\n┌ Title: {info.title}\n└ Chat ID: {info.id}\n——"
-                )
+                channels_n_invite = await PyroHelper.get_channel_invites(client=bot_client, channels=config.FORCE_SUB_CHANNELS2)
+                bot_client.channels_n_invite = channels_n_invite  # pyright: ignore[reportAttributeAccessIssue]
+          except (ChannelInvalid, ChatAdminRequired, NoInviteLinkError) as e:
+              sys.exit(f"Please add and give me permission in FORCE_SUB_CHANNELS and FORE_SUB_CHANNEL2:\n{e}")
+        
             except Exception as a:
                 self.LOGGER(__name__).warning(a)
                 self.LOGGER(__name__).warning(
@@ -122,15 +110,11 @@ class Bot(Client):
 
         if FORCE_SUB_GROUP2:
             try:
-                info = await self.get_chat(FORCE_SUB_GROUP2)
-                link = info.invite_link
-                if not link:
-                    await self.export_chat_invite_link(FORCE_SUB_GROUP2)
-                    link = info.invite_link
-                self.invitelink4 = link
-                self.LOGGER(__name__).info(
-                    f"FORCE_SUB_GROUP2 detected!\n┌ Title: {info.title}\n└ Chat ID: {info.id}\n——"
-                )
+                channels_n_invite = await PyroHelper.get_channel_invites(client=bot_client, channels=config.FORCE_SUB_GROUP2)
+                bot_client.channels_n_invite = channels_n_invite  # pyright: ignore[reportAttributeAccessIssue]
+          except (ChannelInvalid, ChatAdminRequired, NoInviteLinkError) as e:
+              sys.exit(f"Please add and give me permission in FORCE_SUB_CHANNELS and FORCE_SUB_GROUP2:\n{e}")
+        
             except Exception as a:
                 self.LOGGER(__name__).warning(a)
                 self.LOGGER(__name__).warning(
