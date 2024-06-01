@@ -1,6 +1,6 @@
 # (©) @IndomieProject
 
-from aiohttp import web
+import pyromod.listen
 from plugins import web_server
 
 import pyromod.listen
