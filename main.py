@@ -1,3 +1,3 @@
-from bot import pyrogram
+from bot import config
 
 Bot().run()
