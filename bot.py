@@ -8,6 +8,7 @@ from pyrogram import Client
 from pyrogram.enums import ParseMode
 from datetime import datetime
 
+from bot.config import config
 from config import (
     API_HASH,
     APP_ID,
