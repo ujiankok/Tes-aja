@@ -1,3 +1,3 @@
-from bot import config
+from bot import config.env
 
 bot().run()
