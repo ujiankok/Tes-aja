@@ -1,3 +1,3 @@
 from pyrogram import Client
 
-pyrogram().run_Client()
+bot().run_Client()
