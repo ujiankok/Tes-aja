@@ -22,4 +22,4 @@ wget
 ruff==0.3.0
 pyright==1.1.365
 pytest==8.1.1
-config.env
+config
