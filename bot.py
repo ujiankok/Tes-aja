@@ -52,7 +52,7 @@ class Bot(Client):
 
         if FORCE_SUB_CHANNEL:
             try:
-                info = await self.get_chat(FORCE_SUB_CHANNEL)
+                info = await self.client.get_entity(FORCE_SUB_CHANNEL)
                 link = info.invite_link
                 if not link:
                     await self.export_chat_invite_link(FORCE_SUB_CHANNEL)
@@ -73,7 +73,7 @@ class Bot(Client):
 
         if FORCE_SUB_GROUP:
             try:
-                info = await self.get_chat(FORCE_SUB_GROUP)
+                info = await self.client.get_entity(FORCE_SUB_GROUP)
                 link = info.invite_link
                 if not link:
                     await self.export_chat_invite_link(FORCE_SUB_GROUP)
@@ -94,7 +94,7 @@ class Bot(Client):
 
         if FORCE_SUB_CHANNEL2:
             try:
-                info = await self.get_chat(FORCE_SUB_CHANNEL2)
+                info = await self.client.get_entity(FORCE_SUB_CHANNEL2)
                 link = info.invite_link
                 if not link:
                     await self.export_chat_invite_link(FORCE_SUB_CHANNEL2)
@@ -115,7 +115,7 @@ class Bot(Client):
 
         if FORCE_SUB_GROUP2:
             try:
-                info = await self.get_chat(FORCE_SUB_GROUP2)
+                info = await self.client.get_entity(FORCE_SUB_GROUP2)
                 link = info.invite_link
                 if not link:
                     await self.export_chat_invite_link(FORCE_SUB_GROUP2)
@@ -134,7 +134,7 @@ class Bot(Client):
                 sys.exit()
 
         try:
-            db_channel = await self.get_chat(CHANNEL_ID)
+            db_channel = await self.client.get_entity(CHANNEL_ID)
             self.db_channel = db_channel
             test = await self.send_message(chat_id = db_channel.id, text = "Test Message")
             await test.delete()
