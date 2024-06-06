@@ -1,3 +1,3 @@
-from bot import dotenv
+from bot import bot
 
 bot().run()
