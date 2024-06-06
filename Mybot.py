@@ -33,7 +33,7 @@ name ="""
 """
 
 
-class Bot(MyBot):
+class Bot(Client):
     def __init__(self):
         super().__init__(
             name="Bot",
