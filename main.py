@@ -1,3 +1,7 @@
-from bot import bot
+from bot import Bot
 
-bot().run()
+# Inisialisasi objek bot
+my_bot = Bot()
+
+# Jalankan bot
+my_bot.run()
